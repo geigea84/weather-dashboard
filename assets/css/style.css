@@ -7,5 +7,10 @@
 header {
     text-align: center;
     color: white;
-    background-color: darkslategray;
+    background-color: #0B1D30;
+}
+
+.five-day {
+    color: white;
+    background-color: #4192E8;
 }
