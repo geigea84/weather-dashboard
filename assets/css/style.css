@@ -10,9 +10,20 @@ header {
     background-color: #0B1D30;
 }
 
+.topline {
+    margin: 10px 0;
+}
+
+.topline input {
+    margin-top: 10px;
+}
+
 .five-day {
     color: white;
     background-color: #4192E8;
     margin: 0 10px;
+    margin-bottom: 10px;
     padding-top: 10px;
 }
+
+/*will need media queries for margin and padding adjustment*/
