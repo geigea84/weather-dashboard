@@ -13,4 +13,6 @@ header {
 .five-day {
     color: white;
     background-color: #4192E8;
+    margin: 0 10px;
+    padding-top: 10px;
 }
