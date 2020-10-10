@@ -19,17 +19,19 @@
         <div class="row">
             <div class="col-sm-12 col-md-6 topline">
                 <h3>Search for a City:</h3>
-                <input type="text">
+                <input type="text" id="city-input">
                 <button id="search-button">Search</button>
             </div>
             <div class="col-sm-12 col-md-6 topline">
-                <h3>Placeholder for City and Date</h3>
+                <div id="city-and-date"></div>
                 <!--not sure if I should leave partial descriptions in or 
                 dynamically generate them in with js-->
-                <div class="city-specs" id="temperature">Temperature:</div>
-                <div class="city-specs" id="humidity">Humidity:</div>
-                <div class="city-specs" id="wind-speed">Wind Speed:</div>
-                <div class="city-specs" id="uv-index">UV Index:</div>
+                <div class="city-specs">
+                    <div id="temperature">Temperature:</div>
+                    <div id="humidity">Humidity:</div>
+                    <div id="wind-speed">Wind Speed:</div>
+                    <div id="uv-index">UV Index:</div>
+                </div>
             </div>
         </div>
         <div>
