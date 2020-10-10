@@ -2,9 +2,18 @@
 var searchButton = document.querySelector("#search-button");
 
 //input current city
+/*will need an api call to get all applicable cities,
+add if response.ok else alert, add to array of cities
+to create a search history (local storage with setItem
+(json.stringify), recall with getItem (json.parse)),
+create a dynamic list where the array can plug in,
+use for loop to set max length of array*/
 var getCurrentCity = function() {
     var currentCity = document.querySelector("#city-input").value;
 
+    //clear text that was entered
+    document.querySelector("#city-input").textContent = "";
+    
     //adding current date
     var currentDate = moment().format("MM/DD/yyyy");
     console.log(currentDate);
@@ -18,7 +27,9 @@ var getCurrentCity = function() {
 
 //add days to current date
 /*thoughts here: I could violate DRY and set and append one for every 
-card-header, or I could run an array / push it through a for loop?*/
+card-header, or I could run an array / push it through a for loop?
+Suggestion was to use the info pulled from the API to populate each date*/
+/*
 for (i = 0; i < 5; i++) {
     console.log(i);
 };
@@ -31,6 +42,7 @@ var cardHeader = document.querySelector(".card-header");
 var nextDayEl = document.createElement("h5");
 nextDayEl.textContent = nextDay;
 cardHeader.appendChild(nextDayEl);
+*/
 
 //adding current weather
 var getCurrentWeather = function(city) {
