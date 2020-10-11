@@ -45,7 +45,7 @@ var getCurrentCity = function() {
         var longitude = data.coord.lon;
 
         var apiUrlOneCall = "https://api.openweathermap.org/data/2.5/onecall?lat="
-        + latitude + "&lon=" + longitude + "&exclude=hourly,daily" + apiKey;
+        + latitude + "&lon=" + longitude + "&exclude=minutely,hourly" + apiKey;
 
         fetch(apiUrlOneCall)
         .then(function(response) {
