@@ -35,7 +35,7 @@ var getCurrentCity = function() {
         var convertedTemp = ((data.main.temp-273.15)*1.8)+32;
 
         //pulling current temp, humidity, and wind speed
-        currentTemp.textContent = "Temperature: " + convertedTemp.toFixed(2) + (" \xB0") + "F";
+        currentTemp.textContent = "Temperature: " + convertedTemp.toFixed(2) + " \xB0" + "F";
         currentHumidity.textContent = "Humidity: " + data.main.humidity + "%";
         currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed + " MPH";
 
@@ -95,7 +95,7 @@ var getCurrentCity = function() {
                 var dateObject = new Date(milliseconds);
                 var formattedDate = dateObject.toLocaleDateString();
                 console.log(formattedDate);
-                /*need help calling items from array
+                /*need help calling items from array --splice?
                 //append formattedDate to corresponding card header
                 day1.textContent = formattedDate;
                 day2.textContent = formattedDate;
@@ -105,6 +105,7 @@ var getCurrentCity = function() {
                 */
             };
 
+            //set weather icons for five day forecast
             var icon1 = document.querySelector("#icon1");
             var icon2 = document.querySelector("#icon2");
             var icon3 = document.querySelector("#icon3");
@@ -121,6 +122,38 @@ var getCurrentCity = function() {
             + data.daily[4].weather[0].icon + "@2x.png");
             icon5.setAttribute("src", "http://openweathermap.org/img/wn/" 
             + data.daily[5].weather[0].icon + "@2x.png");
+
+            //set temperature for five day forecast with Kelvin to F converter
+            var temp1 = document.querySelector("#temp1");
+            var temp2 = document.querySelector("#temp2");
+            var temp3 = document.querySelector("#temp3");
+            var temp4 = document.querySelector("#temp4");
+            var temp5 = document.querySelector("#temp5");
+
+            temp1.textContent = "Temp: " 
+            + (((data.daily[1].temp.day-273.15)*1.8)+32).toFixed(2) + " \xB0" + "F";
+            temp2.textContent = "Temp: " 
+            + (((data.daily[2].temp.day-273.15)*1.8)+32).toFixed(2) + " \xB0" + "F";
+            temp3.textContent = "Temp: " 
+            + (((data.daily[3].temp.day-273.15)*1.8)+32).toFixed(2) + " \xB0" + "F";
+            temp4.textContent = "Temp: " 
+            + (((data.daily[4].temp.day-273.15)*1.8)+32).toFixed(2) + " \xB0" + "F";
+            temp5.textContent = "Temp: " 
+            + (((data.daily[5].temp.day-273.15)*1.8)+32).toFixed(2) + " \xB0" + "F";
+            
+
+            //set humidity for five day forecast
+            var humid1 = document.querySelector("#humid1");
+            var humid2 = document.querySelector("#humid2");
+            var humid3 = document.querySelector("#humid3");
+            var humid4 = document.querySelector("#humid4");
+            var humid5 = document.querySelector("#humid5");
+
+            humid1.textContent = "Humidity: " + data.daily[1].humidity + "%";
+            humid2.textContent = "Humidity: " + data.daily[2].humidity + "%";
+            humid3.textContent = "Humidity: " + data.daily[3].humidity + "%";
+            humid4.textContent = "Humidity: " + data.daily[4].humidity + "%";
+            humid5.textContent = "Humidity: " + data.daily[5].humidity + "%";
         })
     })
     
