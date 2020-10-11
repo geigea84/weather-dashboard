@@ -74,13 +74,15 @@ var getWeather = function() {
             }
 
             //add dates to five day forecast
-            var day1 = document.querySelector("#day1");
-            var day2 = document.querySelector("#day2");
-            var day3 = document.querySelector("#day3");
-            var day4 = document.querySelector("#day4");
-            var day5 = document.querySelector("#day5");
+            var dayElements = [
+                document.querySelector("#day1"),
+                document.querySelector("#day2"),
+                document.querySelector("#day3"),
+                document.querySelector("#day4"),
+                document.querySelector("#day5")
+            ];
 
-            //maybe format var dateArray = data.daily.[1].dt or data.daily[1].dt
+            //create array of five day forecast timestamp values
             var dateArray = [
                 data.daily[1].dt,
                 data.daily[2].dt,
@@ -94,15 +96,7 @@ var getWeather = function() {
                 var milliseconds = dateArray[i] * 1000;
                 var dateObject = new Date(milliseconds);
                 var formattedDate = dateObject.toLocaleDateString();
-                console.log(formattedDate);
-                /*need help calling items from array --splice?
-                //append formattedDate to corresponding card header
-                day1.textContent = formattedDate;
-                day2.textContent = formattedDate;
-                day3.textContent = formattedDate;
-                day4.textContent = formattedDate;
-                day5.textContent = formattedDate;
-                */
+                dayElements[i].textContent = formattedDate;
             };
 
             //set weather icons for five day forecast

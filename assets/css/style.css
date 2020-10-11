@@ -47,4 +47,11 @@ header {
     background-color: violet;
 }
 
+/*
+.card-header {
+    border-bottom:  white;
+    text-underline-position: bottom;
+}
+*/
+
 /*will need media queries for margin and padding adjustment*/
