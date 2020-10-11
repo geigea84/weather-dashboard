@@ -95,8 +95,32 @@ var getCurrentCity = function() {
                 var dateObject = new Date(milliseconds);
                 var formattedDate = dateObject.toLocaleDateString();
                 console.log(formattedDate);
+                /*need help calling items from array
                 //append formattedDate to corresponding card header
+                day1.textContent = formattedDate;
+                day2.textContent = formattedDate;
+                day3.textContent = formattedDate;
+                day4.textContent = formattedDate;
+                day5.textContent = formattedDate;
+                */
             };
+
+            var icon1 = document.querySelector("#icon1");
+            var icon2 = document.querySelector("#icon2");
+            var icon3 = document.querySelector("#icon3");
+            var icon4 = document.querySelector("#icon4");
+            var icon5 = document.querySelector("#icon5");
+
+            icon1.setAttribute("src", "http://openweathermap.org/img/wn/" 
+            + data.daily[1].weather[0].icon + "@2x.png");
+            icon2.setAttribute("src", "http://openweathermap.org/img/wn/" 
+            + data.daily[2].weather[0].icon + "@2x.png");
+            icon3.setAttribute("src", "http://openweathermap.org/img/wn/" 
+            + data.daily[3].weather[0].icon + "@2x.png");
+            icon4.setAttribute("src", "http://openweathermap.org/img/wn/" 
+            + data.daily[4].weather[0].icon + "@2x.png");
+            icon5.setAttribute("src", "http://openweathermap.org/img/wn/" 
+            + data.daily[5].weather[0].icon + "@2x.png");
         })
     })
     
