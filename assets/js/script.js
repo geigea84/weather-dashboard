@@ -116,6 +116,7 @@ var getWeather = function() {
             + data.daily[4].weather[0].icon + "@2x.png");
             icon5.setAttribute("src", "http://openweathermap.org/img/wn/" 
             + data.daily[5].weather[0].icon + "@2x.png");
+            console.log(data.daily[0].weather[0].icon);
 
             //set temperature for five day forecast with Kelvin to F converter
             var temp1 = document.querySelector("#temp1");
@@ -148,17 +149,27 @@ var getWeather = function() {
             humid3.textContent = "Humidity: " + data.daily[3].humidity + "%";
             humid4.textContent = "Humidity: " + data.daily[4].humidity + "%";
             humid5.textContent = "Humidity: " + data.daily[5].humidity + "%";
+        
+            //adding current date
+            var currentDate = moment().format("MM/DD/yyyy");
+
+            //create an individual div for each?--------------------------------
+            //append city and current date and weather icon
+            var icon0 = "http://openweathermap.org/img/wn/" 
+            + data.daily[0].weather[0].icon + "@2x.png";
+
+            var cityAndDate = document.querySelector("#city-and-date");
+            var cityAndDateEl = document.createElement("h3");
+            var titleIcon = document.querySelector("#title-icon");
+            var iconEl = document.createElement("img");
+            iconEl.setAttribute("src", icon0);
+            cityAndDateEl.textContent = currentCity + " " + currentDate + " ";
+            cityAndDate.appendChild(cityAndDateEl);
+            titleIcon.appendChild(iconEl);
         })
     })
     
-    //adding current date
-    var currentDate = moment().format("MM/DD/yyyy");
-
-    //append city and current date
-    var cityAndDate = document.querySelector("#city-and-date");
-    var cityAndDateEl = document.createElement("h3");
-    cityAndDateEl.textContent = currentCity + " " + currentDate;
-    cityAndDate.appendChild(cityAndDateEl);
+    
 };
 
 searchButton.addEventListener("click", getWeather);
