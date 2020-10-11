@@ -17,8 +17,6 @@ var getCurrentCity = function() {
     //clear previous city and date that was entered
     document.querySelector("#city-and-date").textContent = "";
 
-    //insert another function here to set apart currentWeather from fiveDayForecast?
-
     var apiUrlWeather = "https://api.openweathermap.org/data/2.5/weather?q=" 
     + cityLowercase + apiKey;
 
@@ -28,7 +26,7 @@ var getCurrentCity = function() {
     })
     .then(function(data) {
 
-        //left these vars local because no need to call them elsewhere
+        //select id of each current value slot
         var currentTemp = document.querySelector("#temperature");
         var currentHumidity = document.querySelector("#humidity");
         var currentWindSpeed = document.querySelector("#wind-speed");
@@ -36,7 +34,7 @@ var getCurrentCity = function() {
         //Kelvin to Fahrenheit converter
         var convertedTemp = ((data.main.temp-273.15)*1.8)+32;
 
-        //need to connect response.data to corresponding values in api
+        //pulling current temp, humidity, and wind speed
         currentTemp.textContent = "Temperature: " + convertedTemp.toFixed(2) + (" \xB0") + "F";
         currentHumidity.textContent = "Humidity: " + data.main.humidity + "%";
         currentWindSpeed.textContent = "Wind Speed: " + data.wind.speed + " MPH";
@@ -56,10 +54,8 @@ var getCurrentCity = function() {
             var currentUVIndex = document.querySelector("#uv-index");
             currentUVIndex.textContent = "UV Index: " + data.current.uvi;
 
-            //color code uv index background: need to set up in css
-            //connect proper response data for uv index
+            //color code uv index background
             var colorUVIndex = data.current.uvi
-            console.log(colorUVIndex);
 
             if(colorUVIndex < 3) {
                 currentUVIndex.setAttribute("class", "uv-green");
@@ -76,12 +72,36 @@ var getCurrentCity = function() {
             else {
                 currentUVIndex.setAttribute("class", "uv-violet");
             }
+
+            //add dates to five day forecast
+            var day1 = document.querySelector("#day1");
+            var day2 = document.querySelector("#day2");
+            var day3 = document.querySelector("#day3");
+            var day4 = document.querySelector("#day4");
+            var day5 = document.querySelector("#day5");
+
+            //maybe format var dateArray = data.daily.[1].dt or data.daily[1].dt
+            var dateArray = [
+                data.daily[1].dt,
+                data.daily[2].dt,
+                data.daily[3].dt,
+                data.daily[4].dt,
+                data.daily[5].dt
+            ];
+
+            //convert unix timestamps to standard dates
+            for(i = 0; i < dateArray.length; i++) {
+                var milliseconds = dateArray[i] * 1000;
+                var dateObject = new Date(milliseconds);
+                var formattedDate = dateObject.toLocaleDateString();
+                console.log(formattedDate);
+                //append formattedDate to corresponding card header
+            };
         })
     })
     
     //adding current date
     var currentDate = moment().format("MM/DD/yyyy");
-    console.log(currentDate);
 
     //append city and current date
     var cityAndDate = document.querySelector("#city-and-date");
