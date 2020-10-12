@@ -11,11 +11,23 @@ create a dynamic list where the array can plug in,
 use for loop to set max length of array*/
 var getWeather = function() {
     var currentCity = document.querySelector("#city-input").value;
-
     var cityLowercase = currentCity.toLowerCase();
 
-    //clear previous city and date that was entered
+    //build an array of entered cities
+    var appendDiv = document.querySelector("#append-div");
+    var appendDivEl = document.createElement("div");
+    var currentCityArray = [];
+    currentCityArray.push(currentCity);
+    console.log(currentCityArray);
+    for(i = 0; i < currentCityArray.length; i++) {
+        appendDivEl.textContent = currentCityArray[i];
+        localStorage.setItem("cityArray", currentCityArray);
+        //appendDiv.appendChild(appendDivEl);
+    }
+
+    //clear previous city and date and weather icon
     document.querySelector("#city-and-date").textContent = "";
+    document.querySelector("#title-icon").textContent = "";
 
     var apiUrlWeather = "https://api.openweathermap.org/data/2.5/weather?q=" 
     + cityLowercase + apiKey;
@@ -52,7 +64,7 @@ var getWeather = function() {
         .then(function(data) {
         
             var currentUVIndex = document.querySelector("#uv-index");
-            currentUVIndex.textContent = "UV Index: " + data.current.uvi;
+            currentUVIndex.textContent = data.current.uvi;
 
             //color code uv index background
             var colorUVIndex = data.current.uvi
@@ -116,7 +128,6 @@ var getWeather = function() {
             + data.daily[4].weather[0].icon + "@2x.png");
             icon5.setAttribute("src", "http://openweathermap.org/img/wn/" 
             + data.daily[5].weather[0].icon + "@2x.png");
-            console.log(data.daily[0].weather[0].icon);
 
             //set temperature for five day forecast with Kelvin to F converter
             var temp1 = document.querySelector("#temp1");
@@ -153,7 +164,6 @@ var getWeather = function() {
             //adding current date
             var currentDate = moment().format("MM/DD/yyyy");
 
-            //create an individual div for each?--------------------------------
             //append city and current date and weather icon
             var icon0 = "http://openweathermap.org/img/wn/" 
             + data.daily[0].weather[0].icon + "@2x.png";

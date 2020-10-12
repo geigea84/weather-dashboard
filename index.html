@@ -19,75 +19,81 @@
         <!--sticky column to get left side to stay over there?
         media query/col-12 reset it to stacked-->
         <div class="row">
-            <div class="col-sm-12 col-md-6 topline">
+            <div class="col-sm-12 col-md-3 topline">
                 <h3>Search for a City:</h3>
                 <input type="text" id="city-input" placeholder="enter a city">
                 <button id="search-button">Search</button>
+                <div id="append-div"></div>
             </div>
-            <div class="col-sm-12 col-md-6 topline">
-                <div id="city-and-date"><h3>City & Date</h3></div>
-                <div id="title-icon"></div>
+            <div class="col-sm-12 col-md-9 topline">
+                <div class="city-date-weather-icon">
+                    <div id="city-and-date"><h3>City & Date</h3></div>
+                    <div id="title-icon"></div>
+                </div>
                 <div class="city-specs">
                     <div id="temperature">Temperature:</div>
                     <div id="humidity">Humidity:</div>
                     <div id="wind-speed">Wind Speed:</div>
-                    <div id="uv-index">UV Index:</div>
+                    <div>UV Index: <span id="uv-index"></span></div>
+                </div>
+                <br>
+                <div>
+                    <h4>5-Day Forecast:</h4>
                 </div>
             </div>
-        </div>
-        <div>
-            <h4>5-Day Forecast:</h4>
-        </div>
+        </div>    
         <div class="row">
-            <!--resizing appears to be skipping md-6-->
-            <div class="col-sm-12 col-md-6 col-lg-2 card five-day">
-                <div class="card-header" id="day1"></div>
-                <div class="card-body">
-                    <div class="weather-icon">
-                        <img id="icon1">
+            <div class="col-sm-12 col-md-3"></div>
+            <div class="col-sm-12 col-md-9">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 card five-day">
+                    <div class="card-header" id="day1"></div>
+                    <div class="card-body">
+                        <div class="weather-icon">
+                            <img id="icon1">
+                        </div>
+                        <div class="temp" id="temp1"></div>
+                        <div class="humid" id="humid1"></div>
                     </div>
-                    <div class="temp" id="temp1"></div>
-                    <div class="humid" id="humid1"></div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2 card five-day">
-                <div class="card-header" id="day2"></div>
-                <div class="card-body">
-                    <div class="weather-icon">
-                        <img id="icon2">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 card five-day">
+                    <div class="card-header" id="day2"></div>
+                    <div class="card-body">
+                        <div class="weather-icon">
+                            <img id="icon2">
+                        </div>
+                        <div class="temp" id="temp2"></div>
+                        <div class="humid" id="humid2"></div>
                     </div>
-                    <div class="temp" id="temp2"></div>
-                    <div class="humid" id="humid2"></div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2 card five-day">
-                <div class="card-header" id="day3"></div>
-                <div class="card-body">
-                    <div class="weather-icon">
-                        <img id="icon3">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 card five-day">
+                    <div class="card-header" id="day3"></div>
+                    <div class="card-body">
+                        <div class="weather-icon">
+                            <img id="icon3">
+                        </div>
+                        <div class="temp" id="temp3"></div>
+                        <div class="humid" id="humid3"></div>
                     </div>
-                    <div class="temp" id="temp3"></div>
-                    <div class="humid" id="humid3"></div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2 card five-day">
-                <div class="card-header" id="day4"></div>
-                <div class="card-body">
-                    <div class="weather-icon">
-                        <img id="icon4">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 card five-day">
+                    <div class="card-header" id="day4"></div>
+                    <div class="card-body">
+                        <div class="weather-icon">
+                            <img id="icon4">
+                        </div>
+                        <div class="temp" id="temp4"></div>
+                        <div class="humid" id="humid4"></div>
                     </div>
-                    <div class="temp" id="temp4"></div>
-                    <div class="humid" id="humid4"></div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-2 card five-day">
-                <div class="card-header" id="day5"></div>
-                <div class="card-body">
-                    <div class="weather-icon">
-                        <img id="icon5">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 card five-day">
+                    <div class="card-header" id="day5"></div>
+                    <div class="card-body">
+                        <div class="weather-icon">
+                            <img id="icon5">
+                        </div>
+                        <div class="temp" id="temp5"></div>
+                        <div class="humid" id="humid5"></div>
                     </div>
-                    <div class="temp" id="temp5"></div>
-                    <div class="humid" id="humid5"></div>
                 </div>
             </div>
         </div>

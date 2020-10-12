@@ -18,6 +18,10 @@ header {
     margin-top: 10px;
 }
 
+.city-date-weather-icon {
+    display: inline-block;
+}
+
 .five-day {
     color: white;
     background-color: #4192E8;
@@ -25,10 +29,18 @@ header {
     margin-bottom: 10px;
     padding-top: 10px;
     text-align: center;
+    display: inline-block;
 }
+
+/*
+.row {
+    display: inline;
+}
+*/
 
 .uv-green {
     background-color: green;
+    color: white;
 }
 
 .uv-yellow {
@@ -41,6 +53,7 @@ header {
 
 .uv-red {
     background-color: red;
+    color: white;
 }
 
 .uv-violet {
