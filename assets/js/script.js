@@ -13,16 +13,17 @@ var getWeather = function() {
     var currentCity = document.querySelector("#city-input").value;
     var cityLowercase = currentCity.toLowerCase();
 
-    //build an array of entered cities
+    //build an array of entered cities to store and pull from local storage
     var appendDiv = document.querySelector("#append-div");
     var appendDivEl = document.createElement("div");
     var currentCityArray = [];
     currentCityArray.push(currentCity);
     console.log(currentCityArray);
-    for(i = 0; i < currentCityArray.length; i++) {
-        appendDivEl.textContent = currentCityArray[i];
-        localStorage.setItem("cityArray", currentCityArray);
-        //appendDiv.appendChild(appendDivEl);
+    for(i = 0; i < 10; i++) {
+        appendDivEl.textContent = currentCityArray;
+        localStorage.setItem(currentCityArray, "cityArray");
+        appendDiv.appendChild(appendDivEl);
+        localStorage.getItem(currentCityArray, "cityArray");
     }
 
     //clear previous city and date and weather icon

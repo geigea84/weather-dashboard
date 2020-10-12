@@ -1,5 +1,17 @@
 # weather-dashboard
 
+## Description
+The Weather Dashboard gives you the option to search for a city to get an at-a-glance peek at that city's current weather conditions, as well as its five day forecast.
+
+![image](./assets/images/image.png)
+
+### Technologies Used
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
+* Server Side APIs courtesy of openweathermap.org
+
 AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
