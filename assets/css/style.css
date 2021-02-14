@@ -10,12 +10,21 @@ header {
     background-color: #0B1D30;
 }
 
-.topline {
-    margin: 10px 0;
+.city-list {
+    cursor: pointer;
+    width: 50%;
+    margin: 20px auto;
+    /*margin: 20px 63px 20px 0;*/
+    padding: 2px 0 2px 2px;
+    list-style-type: none;
+    /*border: 1px solid lightslategray;
+    border-radius: 2.5px;*/
+    text-align: center;
+    text-decoration: underline;
 }
 
-.topline input {
-    margin-top: 10px;
+.city-list:hover {
+    color: lightslategray;
 }
 
 .city-date-weather-icon {
