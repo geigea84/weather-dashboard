@@ -3,6 +3,8 @@
 ## Description
 The Weather Dashboard gives you the option to search for a city to get an at-a-glance peek at that city's current weather conditions, as well as its five day forecast.
 
+deployed site: https://geigea84.github.io/weather-dashboard/
+
 ![image](./assets/images/image.png)
 
 ### Technologies Used
